@@ -6,7 +6,7 @@ Based on the Cortex A9 port, with replacements for INTC of the AM335X instead of
 * lwip(nteconn) ported, though not rigourously tested!
 # Pre-requisites
 * CMake
-* GNU arm Toolchain
+* GNU arm Toolchain (built on gcc-arm-8.2-2019.01-i686-mingw32-arm-eabi)
 * Python (2 or 3)
 # Optional Tools
 * CCS
