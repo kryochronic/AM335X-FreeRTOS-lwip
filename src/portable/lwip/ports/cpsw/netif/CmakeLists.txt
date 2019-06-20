@@ -1,0 +1,6 @@
+
+target_sources(src_portable_lwip_ports_cpsw_netif
+                PUBLIC
+                    "${CMAKE_CURRENT_SOURCE_DIR}/cpswif.c"
+
+            )

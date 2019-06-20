@@ -1,0 +1,6 @@
+[
+    {
+        "name": "gcc-arm-8.2-2019.01-i686-mingw32-arm-eabi - (A-Profile)",
+        "toolchainFile": "D:/toolchains/gcc-arm-8.2-2019.01-i686-mingw32-arm-eabi/gcc-arm-8.2-2019.01-i686-mingw32-arm-eabi.cmake"
+    }
+]

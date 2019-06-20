@@ -1,0 +1,7 @@
+
+GNU_Debug/
+.settings/**
+env[23]/**
+env/**
+[bB]uild/**
+.vscode/ipch

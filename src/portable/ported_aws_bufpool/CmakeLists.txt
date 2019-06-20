@@ -1,0 +1,6 @@
+
+target_sources(src_portable_ported_aws_bufpool
+                PUBLIC
+                    "${CMAKE_CURRENT_SOURCE_DIR}/aws_bufferpool_static_thread_safe.c"
+
+            )

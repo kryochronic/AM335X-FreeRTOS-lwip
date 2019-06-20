@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {"name":"Python: Current File","type":"python","request":"launch","program":"${file}","console":"integratedTerminal"},
+        {
+            "name": "Generate C Files",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/lib/third_party/c_source_tools/src/srcgen.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "CMake : Generate CmakeIncludes",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/AM335xFreeRTOS_cmake_makefile_args.py",
+            "args": ["${workspaceFolder}/AM335xFreeRTOS_cmake_makefile_args.py"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/freeRTOSBBB.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files (x86)/GNU Tools Arm Embedded/7 2018-q2-update/bin/arm-none-eabi-gdb.exe",
+            "miDebuggerArgs": "",
+            "miDebuggerServerAddress":"localhost:55000",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+        },
+    ]
+}

@@ -1,0 +1,12 @@
+[submodule "lib/third_party/ti"]
+	path = lib/third_party/ti
+	url = http://github.com/kryochronic/AM335X_StarterWare_02_00_01_01.git
+	ignore = dirty
+[submodule "lib/third_party/amazon"]
+	path = lib/third_party/amazon
+	url = https://github.com/aws/amazon-freertos.git
+	ignore = dirty
+[submodule "lib/third_party/c_source_tools"]
+	path = lib/third_party/c_source_tools
+	url = http://github.com/kryochronic/c_source_tools
+	ignore = dirty

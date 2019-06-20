@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "linux-BBB-Arm",
+            "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/lib/third_party/ti/drivers",
+                "${workspaceFolder}/lib/third_party/ti/utils",
+                "${workspaceFolder}/lib/third_party/ti/mmcsdlib",
+                "${workspaceFolder}/lib/third_party/ti/platform/beaglebone",
+                "${workspaceFolder}/lib/third_party/ti/nandlib",
+                "${workspaceFolder}/lib/third_party/ti/system_config/armv7a",
+                "${workspaceFolder}/lib/third_party/amazon/lib/third_party/lwip",
+                "${workspaceFolder}/lib/third_party/amazon/lib/third_party/lwip/src/include",
+                "${workspaceFolder}/lib/third_party/amazon/lib/third_party/lwip/src/portable",
+                "${workspaceFolder}/lib/third_party/ti/include",
+                "${workspaceFolder}/lib/third_party/ti/include/armv7a",
+                "${workspaceFolder}/lib/third_party/ti/include/armv7a/am335x",
+                "${workspaceFolder}/lib/third_party/ti/include/hw",
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__GNUC__=7",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "compilerPath": "D:/toolchains/gcc-arm-8.2-2019.01-i686-mingw32-arm-eabi/bin/arm-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        }
+    ],
+    "version": 4
+}
