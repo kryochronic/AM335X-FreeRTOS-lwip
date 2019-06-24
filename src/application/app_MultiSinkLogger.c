@@ -42,6 +42,7 @@
 
 #include "inc/aws_bufferpool.h"
 #include "inc/aws_bufferpool_config.h"
+#include "enet_wrapper.h"
 
 /**************************************************************************************************************************/
 /*                                                     CONFIGURATIONS                                                     */
@@ -93,12 +94,17 @@ portTASK_FUNCTION(vMultiSinkLoggerConsole_main,pvParameters)
     {
         uint32_t rv = pdFAIL;
         const char * pMsg;
+        uint8_t ipv4[4];
+        enet_task_params_s_t * p_enet_task_params_s = (enet_task_params_s_t*)pParams->p_enet_task_params_s;
+        // LWIP_IF* pLWIP_IF = p_enet_task_params_s->pLWIPIF;
+        memcpy(&ipv4,&p_enet_task_params_s->pLWIP_IF->ipAddr,4);
         rv = xQueueReceive(pParams->InQ,&pMsg,portMAX_DELAY);
         if(pdPASS == rv)
         {
             uint32_t m     = bufferpoolconfigBUFFER_SIZE;
             char * q       = pMsg;
-            pParams->pInterface("\n[%08X]",Counter ++);
+            pParams->pInterface("\n[%08X ",Counter ++);
+            pParams->pInterface("%d.%d.%d.%d]",ipv4[0],ipv4[1],ipv4[2],ipv4[3]);
             while(*q && (m > 0))
             {
                 if(('\n' == *q) || ('\r' == *q))

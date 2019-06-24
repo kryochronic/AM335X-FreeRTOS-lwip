@@ -50,6 +50,7 @@ typedef struct AppMultiSinkLogTaskParam_DSType_
 	QueueHandle_t InQ;
     void (*pInterface)(const char *string, ...);
     void (*EntryProgram) (void);
+    void *p_enet_task_params_s;
 }  AppMultiSinkLogTaskParam_DSType;
 
 /**************************************************************************************************************************/

@@ -54,7 +54,7 @@
 #include "FreeRTOS.h"
 #include "event_groups.h"
 
-// #include "ports/cpsw/lwiplib.c"
+#include "enet_wrapper.h"
 
 /**************************************************************************************************************************/
 /*                                                     CONFIGURATIONS                                                     */
@@ -367,7 +367,7 @@ void enet_lwip_create_handler(void(*pTask)(void *),void * pParams)
 portTASK_FUNCTION(lwip_main,pvParameters)
 {
     unsigned int ipAddr;
-    
+    enet_task_params_s_t *p_enet_task_params_s = (enet_task_params_s_t *)pvParameters;
     /* configure Ethernet (GPIOs, clocks, MAC, DMA) */
     InitBspEthHW();
     /* Setup the Interrupt Handlers */
@@ -392,6 +392,7 @@ portTASK_FUNCTION(lwip_main,pvParameters)
     /* Loop forever.  For Switch Condigraton and interrupt handlers. */
     NAV_APP_LOG_PRINTF("Acquiring IP Address for Port 1... \n\r" );
     LWIP_IF *plwipIfPort = &lwipIfPort1;
+    p_enet_task_params_s->pLWIP_IF = &lwipIfPort1;
     
     plwipIfPort->instNum = 0;
     plwipIfPort->slvPortNum = 1; 

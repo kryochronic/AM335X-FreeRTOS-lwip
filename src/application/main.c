@@ -24,7 +24,7 @@ extern void Entry(void);
 **                INTERNAL MACRO DEFINITIONS
 
 *****************************************************************************/
-
+enet_task_params_s_t enet_task_params_s;
 
 AppMultiSinkLogTaskParam_DSType LogTaskConsoleParams = 
 {
@@ -54,6 +54,7 @@ int main()
 	app_InitOSEvents();
 	Pin23.EventGroup = xApplicationEventGroup_001;
 	Pin24.EventGroup = xApplicationEventGroup_001;
+	LogTaskConsoleParams.p_enet_task_params_s = &enet_task_params_s;
 	ConsoleUtilsPrintf("App Events initialized.\r\n");
 	BUFFERPOOL_Init();
 	ConsoleUtilsPrintf("BufferPool initialized.\r\n");
@@ -67,7 +68,7 @@ int main()
 	/* Lets keep the priority of logger high, for debugging for the moment */
 	xTaskCreate( &vMultiSinkLoggerConsole_main, "LOG-CON", pdAPP_TASK_STACK_SIZE_1KW_UL, &LogTaskConsoleParams, PRIORITY_LOGGER, NULL );
 	NAV_APP_LOG_PRINTF("%s Init ... Enjoy\n","LOG-CON");
-	xTaskCreate( &lwip_main, "lwip", pdAPP_TASK_STACK_SIZE_1KW_UL, NULL, PRIORITY_LWIP, NULL );
+	xTaskCreate( &lwip_main, "lwip", pdAPP_TASK_STACK_SIZE_1KW_UL, (void *)&enet_task_params_s, PRIORITY_LWIP, NULL );
 	NAV_APP_LOG_PRINTF("%s Init ... Enjoy\n","lwip_main");
 #if 1
 	/* We want to now start the sceduler */
