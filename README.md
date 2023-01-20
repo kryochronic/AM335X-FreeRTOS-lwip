@@ -23,7 +23,7 @@ Based on the Cortex A9 port, with replacements for INTC of the AM335X instead of
 The lwip netconnn APIs while charming, are a bit of kerfuffle with the NETCONN events aka RECV_PLUS/MINUS & SEND_PLUS/MINUS.
 The events them selves are state-less & have to be added to context of the event to make sense of them.
 Below is an attempt on the classification of the same for a 3-thread model using the FDS, for a tcp client:
-`Inputs	len	Type	API	From	Context	WRITE_ENABLED			Resulting_Context	FLAGS-OUTPUTS`
+<br>`Inputs	len	Type	API	From	Context	WRITE_ENABLED			Resulting_Context	FLAGS-OUTPUTS`
 
 |**Context**|**Netconn Event**|**len**|**Type**|**API**|**From**|**WRITE_ENABLED**|**Resulting_Context**|**Read/Wrtite Thread Enable?**|**lwip_state**|
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
