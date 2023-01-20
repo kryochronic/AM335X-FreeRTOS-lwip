@@ -24,11 +24,7 @@ The lwip netconnn APIs while charming, are a bit of kerfuffle with the NETCONN e
 The events them selves are state-less & have to be added to context of the event to make sense of them.
 Below is an attempt on the classification of the same for a 3-thread model using the FDS, for a tcp client:
 `Inputs	len	Type	API	From	Context	WRITE_ENABLED			Resulting_Context	FLAGS-OUTPUTS`
-
-|Inputs|||||||Outputs|||
-|---|---|---|---|---|---|---|---|---|---|---|---|
-**Context**|**Netconn Event**|**len**|**Type**|**API**|**From**|**WRITE_ENABLED**|**Resulting_Context**|**Read/Wrtite Thread Enable?**|**lwip_state**
-
+a
 **Context**|**Netconn Event**|**len**|**Type**|**API**|**From**|**WRITE_ENABLED**|**Resulting_Context**|**Read/Wrtite Thread Enable?**|**lwip_state**
 |---|---|---|---|---|---|---|---|---|---|---|---|
 SHUTDN|R+|0|Client-TCP|netconn|`lwip::err_tcp`|0|SHUTDN|NA|ERR
@@ -52,7 +48,6 @@ RUNNING|R-|1|Client-TCP|netconn|`lwip::netconn_recv_data`|X|RUNNING|TRC_RX_HANDL
 RUNNING|R+|1|Client-TCP|netconn|`lwip::recv_tcp`|X|RUNNING::Data Arrived|TRC_RX_HANDLER_ACTIVATE|Data Arrived
 RUNNING|R+|1|Client-TCP|raw|`lwip::recv_raw`|X|RUNNING::Data Arrived|TRC_RX_HANDLER_ACTIVATE|Data Arrived
 RUNNING|R+|1|Client-TCP|netconn|`lwip::recv_udp`|X|RUNNING::Data Arrived|TRC_RX_HANDLER_ACTIVATE|Data Arrived
-|||||``||||
 RUNNING|R+|0|Server-TCP|socket|`lwip::accept_function`|X|ERR|NotMapped|NotMapped
 RUNNING|R+|0|Server-TCP|socket|`lwip::accept_function`|X|ERR|NotMapped|NotMapped
 RUNNING|R+|0|Server-TCP|netconn|`lwip::netconn_accept`|X|ERR|NotMapped|NotMapped
