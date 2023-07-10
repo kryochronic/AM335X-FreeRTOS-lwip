@@ -96,6 +96,7 @@ void vApplicationFPUSafeIRQHandler(void)
     portDI();
     xInsideISR = Local_xInsideISR;
     IntPriorityThresholdSet(portUNMASK_VALUE);
+    IntSystemEnable(index);
 }
 
 
